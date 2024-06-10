@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4842213453147683233}
   - component: {fileID: 8671009310089655622}
+  - component: {fileID: -873779907659609131}
   m_Layer: 0
   m_Name: Boss1
   m_TagString: Boss
@@ -87,3 +88,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-873779907659609131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5005633322105081572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cc922b564fe4a047aa0a8d757679c6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePerClick: 1
+  nextBoss: {fileID: 6690198522684267730, guid: 69d08d270824f7e49b94e3794dc31b41, type: 3}
+  spawn: {fileID: 4842213453147683233}
+  healthSlider: {fileID: 5365180224067478391, guid: 82012c59f1afe3a4c83a52f3ae9d12fa, type: 3}
+  maxHP: 10

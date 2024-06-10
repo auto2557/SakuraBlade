@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainSystem : MonoBehaviour
 {
@@ -10,7 +11,17 @@ public class MainSystem : MonoBehaviour
     public GameObject nextBoss;
     public Transform spawn;
 
-    public static double healthMultiplier = 1.0;
+    //MultipleHP//
+    public static double healthMultiplier = 1.75;
+
+    // UI Elements //
+    [SerializeField] public Slider healthSlider;
+
+    void Start()
+    {
+        healthSlider.maxValue = (int)HP;
+        healthSlider.value = (int)HP;
+    }
 
 
     void Update()
@@ -32,6 +43,7 @@ public class MainSystem : MonoBehaviour
                     HP -= damagePerClick;
 
                     Debug.Log("HP = " + (int)HP);
+                    healthSlider.value = (int)HP;
 
                 }
             }
@@ -48,6 +60,5 @@ public class MainSystem : MonoBehaviour
 
         }
     }
-
 
 }

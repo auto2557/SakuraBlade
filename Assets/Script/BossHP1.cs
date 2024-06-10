@@ -1,14 +1,16 @@
 using System.Buffers.Text;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class BossHP3 : MainSystem
+public class BossHP1 : MainSystem
 {
     private double newHP = 10;
-
 
     private void Start()
     {
         HP = newHP * healthMultiplier;
+        healthSlider.maxValue = (int)newHP;
+        healthSlider.value = (int)newHP;
     }
 
     public override void AttackBoss()
@@ -23,10 +25,23 @@ public class BossHP3 : MainSystem
                     HP -= damagePerClick;
 
                     Debug.Log("HP = " + (int)HP);
-
+                    healthSlider.value = (int)HP;
 
                 }
             }
+        }
+    }
+
+    public override void BossDestroy()
+    {
+        if (HP <= 0)
+        {
+            Destroy(gameObject);
+            healthMultiplier *= 1.25;
+            healthSlider.maxValue = (int)newHP;
+            healthSlider.value = (int)newHP;
+            Instantiate(nextBoss, spawn.position, spawn.rotation);
+
         }
     }
 
