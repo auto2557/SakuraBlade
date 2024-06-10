@@ -4,13 +4,13 @@ using UnityEngine.UI;
 
 public class BossHP : MainSystem
 {
-    public double newHP = 10;
+    private double newHP = 10;
     private Slider healthSlider;
 
     private void Start()
     {
         GameObject healthSliderObj = GameObject.FindWithTag("HPbar");
-        healthSlider = healthSliderObj.GetComponent<Slider>(); // Assign the Slider component
+        healthSlider = healthSliderObj.GetComponent<Slider>(); 
 
         HP = newHP * healthMultiplier;
         healthSlider.maxValue = (int)(newHP* healthMultiplier);
@@ -40,7 +40,7 @@ public class BossHP : MainSystem
     {
         if (HP <= 0)
         {
-            // Reset slider
+        
             healthSlider.value = healthSlider.maxValue;
 
             Destroy(gameObject);
