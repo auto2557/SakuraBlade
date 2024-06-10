@@ -4,13 +4,17 @@ using UnityEngine.UI;
 
 public class BossHP : MainSystem
 {
-    private double newHP = 10;
+    public double newHP = 10;
+    private Slider healthSlider;
 
     private void Start()
     {
+        GameObject healthSliderObj = GameObject.FindWithTag("HPbar");
+        healthSlider = healthSliderObj.GetComponent<Slider>(); // Assign the Slider component
+
         HP = newHP * healthMultiplier;
-        healthSlider.maxValue = (int)newHP;
-        healthSlider.value = (int)newHP;
+        healthSlider.maxValue = (int)(newHP* healthMultiplier);
+        healthSlider.value = (int)(newHP* healthMultiplier);
     }
 
     public override void AttackBoss()
@@ -24,7 +28,7 @@ public class BossHP : MainSystem
 
                     HP -= damagePerClick;
 
-                    Debug.Log("HP = " + (int)HP);
+                    Debug.Log("HP = " + (float)HP);
                     healthSlider.value = (int)HP;
 
                 }
@@ -36,12 +40,12 @@ public class BossHP : MainSystem
     {
         if (HP <= 0)
         {
+            // Reset slider
+            healthSlider.value = healthSlider.maxValue;
+
             Destroy(gameObject);
             healthMultiplier *= 1.25;
-            healthSlider.maxValue = (int)newHP;
-            healthSlider.value = (int)newHP;
             Instantiate(nextBoss, spawn.position, spawn.rotation);
-
         }
     }
 

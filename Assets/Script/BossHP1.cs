@@ -9,8 +9,6 @@ public class BossHP1 : MainSystem
     private void Start()
     {
         HP = newHP * healthMultiplier;
-        healthSlider.maxValue = (int)newHP;
-        healthSlider.value = (int)newHP;
     }
 
     public override void AttackBoss()
@@ -25,7 +23,7 @@ public class BossHP1 : MainSystem
                     HP -= damagePerClick;
 
                     Debug.Log("HP = " + (int)HP);
-                    healthSlider.value = (int)HP;
+                   
 
                 }
             }
@@ -38,8 +36,7 @@ public class BossHP1 : MainSystem
         {
             Destroy(gameObject);
             healthMultiplier *= 1.25;
-            healthSlider.maxValue = (int)newHP;
-            healthSlider.value = (int)newHP;
+           
             Instantiate(nextBoss, spawn.position, spawn.rotation);
 
         }

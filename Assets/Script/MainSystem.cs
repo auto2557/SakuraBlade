@@ -14,14 +14,6 @@ public class MainSystem : MonoBehaviour
     //MultipleHP//
     public static double healthMultiplier = 1.75;
 
-    // UI Elements //
-    [SerializeField] public Slider healthSlider;
-
-    void Start()
-    {
-        healthSlider.maxValue = (int)HP;
-        healthSlider.value = (int)HP;
-    }
 
 
     void Update()
@@ -43,7 +35,6 @@ public class MainSystem : MonoBehaviour
                     HP -= damagePerClick;
 
                     Debug.Log("HP = " + (int)HP);
-                    healthSlider.value = (int)HP;
 
                 }
             }
@@ -57,8 +48,6 @@ public class MainSystem : MonoBehaviour
             Destroy(gameObject);
             healthMultiplier *= 1.25;
             Instantiate(nextBoss, spawn.position, spawn.rotation);
-
         }
     }
-
 }

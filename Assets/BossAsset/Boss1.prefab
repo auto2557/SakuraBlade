@@ -103,5 +103,5 @@ MonoBehaviour:
   damagePerClick: 1
   nextBoss: {fileID: 6690198522684267730, guid: 69d08d270824f7e49b94e3794dc31b41, type: 3}
   spawn: {fileID: 4842213453147683233}
-  healthSlider: {fileID: 5365180224067478391, guid: 82012c59f1afe3a4c83a52f3ae9d12fa, type: 3}
-  maxHP: 10
+  healthSlider: {fileID: 7626452119397342600, guid: 82012c59f1afe3a4c83a52f3ae9d12fa, type: 3}
+  newHP: 10
