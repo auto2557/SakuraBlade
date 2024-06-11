@@ -874,7 +874,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePerClick: 1
   damagePOP: {fileID: 1101326444}
-  displayDuration: 0.3
+  displayDuration: 1.5
 --- !u!224 &1465955740 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7152033061385599765, guid: 82012c59f1afe3a4c83a52f3ae9d12fa, type: 3}
@@ -901,11 +901,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 920419688167274649, guid: 82012c59f1afe3a4c83a52f3ae9d12fa, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 920419688167274649, guid: 82012c59f1afe3a4c83a52f3ae9d12fa, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3106935959829098478, guid: 82012c59f1afe3a4c83a52f3ae9d12fa, type: 3}
       propertyPath: m_Name
