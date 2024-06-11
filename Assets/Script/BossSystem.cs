@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainSystem : MonoBehaviour
+public class BossSystem : MonoBehaviour
 {
     //Damage System//
     protected double HP;
