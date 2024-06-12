@@ -901,11 +901,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 920419688167274649, guid: 82012c59f1afe3a4c83a52f3ae9d12fa, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 920419688167274649, guid: 82012c59f1afe3a4c83a52f3ae9d12fa, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3106935959829098478, guid: 82012c59f1afe3a4c83a52f3ae9d12fa, type: 3}
       propertyPath: m_Name

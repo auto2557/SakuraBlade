@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 using System.Collections;
 
 public class Player : MonoBehaviour
@@ -45,5 +46,30 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(displayDuration);
         damagePOP.gameObject.SetActive(false);
+    }
+
+    public void SaveGame()
+    {
+        GameData data = new GameData();
+        data.damagePerClick = damagePerClick;
+
+        string json = JsonUtility.ToJson(data);
+        File.WriteAllText(Application.persistentDataPath + "/gamedata.json", json);
+    }
+
+    private void OnApplicationQuit()
+    {
+        SaveGame();
+    }
+
+    public void LoadGame()
+    {
+        string path = Application.persistentDataPath + "/gamedata.json";
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            GameData data = JsonUtility.FromJson<GameData>(json);
+            damagePerClick = data.damagePerClick;
+        }
     }
 }

@@ -1,5 +1,6 @@
 using System.Buffers.Text;
 using UnityEngine;
+using System.IO;
 using UnityEngine.UI;
 
 public class BossHP : BossSystem
@@ -15,6 +16,8 @@ public class BossHP : BossSystem
         healthSlider = healthSliderObj.GetComponent<Slider>();
         GameObject textHeal = GameObject.FindWithTag("hpCOUNT");
         healthText = textHeal.GetComponent<Text>();
+
+        LoadGame();
 
         HP = newHP * healthMultiplier;
         MaxHP = newHP * healthMultiplier;
@@ -38,6 +41,9 @@ public class BossHP : BossSystem
                     Debug.Log("HP = " + (float)HP);
                     healthSlider.value = (int)HP;
                     healthText.text = ((int)HP).ToString() + "/" + ((int)MaxHP).ToString();
+
+                    SaveGame();
+
                 }
             }
         }
@@ -53,8 +59,39 @@ public class BossHP : BossSystem
             Destroy(gameObject);
             healthMultiplier *= 1.25;
             Instantiate(nextBoss, spawn.position, spawn.rotation);
+
+            SaveGame();
         }
     }
+
+    public void SaveGame()
+    {
+        GameData data = new GameData();
+        data.bossHP = HP;
+        data.healthMultiplier = healthMultiplier;
+
+        string json = JsonUtility.ToJson(data);
+        File.WriteAllText(Application.persistentDataPath + "/bossdata.json", json);
+    }
+
+    public void LoadGame()
+    {
+        string path = Application.persistentDataPath + "/bossdata.json";
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            GameData data = JsonUtility.FromJson<GameData>(json);
+            HP = data.bossHP;
+            healthMultiplier = data.healthMultiplier;
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        SaveGame();
+    }
+
+
 
 
 }

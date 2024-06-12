@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class BossSystem : MonoBehaviour
 {
@@ -13,8 +14,6 @@ public class BossSystem : MonoBehaviour
 
     //MultipleHP//
     public static double healthMultiplier = 1.75;
-
-
 
     void Update()
     {
@@ -50,4 +49,6 @@ public class BossSystem : MonoBehaviour
             Instantiate(nextBoss, spawn.position, spawn.rotation);
         }
     }
+
+    
 }
