@@ -3,31 +3,49 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
 
-public class BossHP : BossSystem
+public class  BossHP : MonoBehaviour
 {
-    public double newHP = 10;
+    public double damagePerClick = 1;
+
+    public GameObject nextBoss;
+    public Transform spawn;
+
+    private double HP;
+    private double currentHP = 10;
+    public static double healthMultiplier = 1.75;
+
     public double MaxHP;
+
     private Slider healthSlider;
     private Text healthText;
 
     private void Start()
     {
+
         GameObject healthSliderObj = GameObject.FindWithTag("HPbar");
         healthSlider = healthSliderObj.GetComponent<Slider>();
+
         GameObject textHeal = GameObject.FindWithTag("hpCOUNT");
         healthText = textHeal.GetComponent<Text>();
 
         LoadGame();
 
-        HP = newHP * healthMultiplier;
-        MaxHP = newHP * healthMultiplier;
-        healthSlider.maxValue = (int)(newHP* healthMultiplier);
-        healthSlider.value = (int)(newHP* healthMultiplier);
+        HP = currentHP * healthMultiplier;
+        MaxHP = HP;
+        healthSlider.maxValue = (int)(HP);
+        healthSlider.value = (int)(HP);
 
         healthText.text = ((int)HP).ToString() + "/" + ((int)MaxHP).ToString();
     }
 
-    public override void AttackBoss()
+    private void Update()
+    {
+        AttackBoss();
+        BossDestroy();
+    }
+
+
+    public void AttackBoss()
     {
         if (Input.touchCount > 0)
         {
@@ -42,14 +60,16 @@ public class BossHP : BossSystem
                     healthSlider.value = (int)HP;
                     healthText.text = ((int)HP).ToString() + "/" + ((int)MaxHP).ToString();
 
+                    
                     SaveGame();
+
 
                 }
             }
         }
     }
 
-    public override void BossDestroy()
+    public void BossDestroy()
     {
         if (HP <= 0)
         {
@@ -60,6 +80,7 @@ public class BossHP : BossSystem
             healthMultiplier *= 1.25;
             Instantiate(nextBoss, spawn.position, spawn.rotation);
 
+            
             SaveGame();
         }
     }
@@ -90,6 +111,8 @@ public class BossHP : BossSystem
     {
         SaveGame();
     }
+
+
 
 
 
