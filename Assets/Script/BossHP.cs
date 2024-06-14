@@ -19,13 +19,18 @@ public class  BossHP : MonoBehaviour
     private Slider healthSlider;
     private Text healthText;
 
-    public static double coin = 0;
+    
     public Text CoinText;
+    public static double coinValue;
+    public static double coinAmount;
 
     private void Start()
     {
+        double coin = Random.Range(50, 100);
 
-        GameObject healthSliderObj = GameObject.FindWithTag("HPbar");
+        coinValue = coin;
+
+    GameObject healthSliderObj = GameObject.FindWithTag("HPbar");
         healthSlider = healthSliderObj.GetComponent<Slider>();
 
         GameObject Coinui = GameObject.FindWithTag("CoinUI");
@@ -41,7 +46,7 @@ public class  BossHP : MonoBehaviour
         healthSlider.maxValue = (int)(HP);
         healthSlider.value = (int)(HP);
 
-        CoinText.text = "Coin = " + coin.ToString();
+        CoinText.text = "Coin = " + ((int)coinAmount).ToString();
         healthText.text = ((int)HP).ToString() + "/" + ((int)MaxHP).ToString();
     }
 
@@ -68,7 +73,6 @@ public class  BossHP : MonoBehaviour
                     healthText.text = ((int)HP).ToString() + "/" + ((int)MaxHP).ToString();
 
 
-
                     SaveGame();
 
 
@@ -89,9 +93,12 @@ public class  BossHP : MonoBehaviour
             
             healthMultiplier *= 1.25;
             Instantiate(nextBoss, spawn.position, spawn.rotation);
-            
-                coin += 50; 
-                CoinText.text = "Coin = " + coin.ToString();
+
+            coinAmount += coinValue;
+            CoinText.text = "Coin = " + ((int)coinAmount).ToString();
+
+
+            CoinText.text = "Coin = " + coinAmount.ToString();
             
 
             SaveGame();
