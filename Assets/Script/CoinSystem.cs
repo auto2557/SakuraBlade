@@ -1,9 +1,8 @@
-/*using UnityEngine;
-using UnityEngine.UI;
+using System;
 
-public class CoinSystem : MonoBehaviour
+[System.Serializable]
+public class CoinSystem
 {
     public double coin;
-    public Text CoinText;
+}
 
-}*/

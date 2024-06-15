@@ -26,9 +26,13 @@ public class  BossHP : MonoBehaviour
 
     private void Start()
     {
-        double coin = Random.Range(50, 100);
+        CoinSystem coinSystem = new CoinSystem();
+        double randomCoin = Random.Range(50,100);
 
-        coinValue = coin;
+        coinSystem.coin = randomCoin;
+
+        coinValue = coinSystem.coin;
+        
 
     GameObject healthSliderObj = GameObject.FindWithTag("HPbar");
         healthSlider = healthSliderObj.GetComponent<Slider>();
@@ -39,7 +43,7 @@ public class  BossHP : MonoBehaviour
         GameObject textHeal = GameObject.FindWithTag("hpCOUNT");
         healthText = textHeal.GetComponent<Text>();
 
-       // LoadGame();
+        LoadGame();
 
         HP = currentHP * healthMultiplier;
         MaxHP = HP;
@@ -99,7 +103,10 @@ public class  BossHP : MonoBehaviour
 
 
             CoinText.text = "Coin = " + coinAmount.ToString();
-            
+
+            CoinSystem coinSystem = new CoinSystem();
+            coinSystem.coin = coinAmount;
+
 
             SaveGame();
 
@@ -110,8 +117,10 @@ public class  BossHP : MonoBehaviour
     public void SaveGame()
     {
         GameData data = new GameData();
+        CoinSystem coinSystem = new CoinSystem();
         data.bossHP = HP;
         data.healthMultiplier = healthMultiplier;
+        data.coinData = coinAmount;
 
         string json = JsonUtility.ToJson(data);
         File.WriteAllText(Application.persistentDataPath + "/bossdata.json", json);
@@ -119,6 +128,8 @@ public class  BossHP : MonoBehaviour
 
     public void LoadGame()
     {
+        CoinSystem coinSystem = new CoinSystem();
+
         string path = Application.persistentDataPath + "/bossdata.json";
         if (File.Exists(path))
         {
@@ -126,6 +137,7 @@ public class  BossHP : MonoBehaviour
             GameData data = JsonUtility.FromJson<GameData>(json);
             HP = data.bossHP;
             healthMultiplier = data.healthMultiplier;
+            coinAmount = data.coinData;
         }
     }
 
