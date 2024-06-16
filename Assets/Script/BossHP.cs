@@ -3,7 +3,7 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
 
-public class  BossHP : MonoBehaviour
+public class  BossHP : MainData
 {
     public double damagePerClick = 1;
 
@@ -30,15 +30,11 @@ public class  BossHP : MonoBehaviour
 
     private void Start()
     {
-        CoinSystem coinSystem = new CoinSystem();
+        
         double randomCoin = Random.Range(50,100);
 
 
-        coinSystem.coin = randomCoin;
-
-        coinValue = coinSystem.coin;
-
-        
+        coin = randomCoin;
 
         GameObject healthSliderObj = GameObject.FindWithTag("HPbar");
         healthSlider = healthSliderObj.GetComponent<Slider>();
@@ -102,21 +98,20 @@ public class  BossHP : MonoBehaviour
             healthSlider.value = healthSlider.maxValue;
 
             Destroy(gameObject);
-            
+            SpawnObjects();
+
             healthMultiplier *= 1.25;
             Instantiate(nextBoss, spawn.position, spawn.rotation);
            
 
-            coinAmount += coinValue;
+            coinAmount += coin;
             CoinText.text = "Coin = " + ((int)coinAmount).ToString();
 
 
             CoinText.text = "Coin = " + coinAmount.ToString();
 
-            CoinSystem coinSystem = new CoinSystem();
-            coinSystem.coin = coinAmount;
-
-            SpawnObjects();
+            
+            
 
             SaveGame();
 
@@ -126,26 +121,25 @@ public class  BossHP : MonoBehaviour
 
     public void SpawnObjects()
     {
-        
-        int randomCoinspawn = Random.Range(10,15);
+
+        int randomCoinspawn = Random.Range(20, 35);
         for (int i = 0; i < randomCoinspawn; i++)
         {
             Vector2 randomPosition = new Vector2(
                 Random.Range(-spawnArea.x / 2, spawnArea.x / 2),
                 Random.Range(-spawnArea.y / 2, spawnArea.y / 2)
-                );
 
-            GameObject spawnedCoin =  Instantiate(spawnCoin, randomPosition, Quaternion.identity);
+                );
+            GameObject spawnedCoin = Instantiate(spawnCoin, randomPosition, Quaternion.identity);
+
             Destroy(spawnedCoin, 5f);
         }
-        
-       
     }
 
     public void SaveGame()
     {
         GameData data = new GameData();
-        CoinSystem coinSystem = new CoinSystem();
+       
         data.bossHP = HP;
         data.healthMultiplier = healthMultiplier;
         data.coinData = coinAmount;
@@ -156,7 +150,7 @@ public class  BossHP : MonoBehaviour
 
     public void LoadGame()
     {
-        CoinSystem coinSystem = new CoinSystem();
+      
 
         string path = Application.persistentDataPath + "/bossdata.json";
         if (File.Exists(path))

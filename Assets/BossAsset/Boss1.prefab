@@ -106,3 +106,4 @@ MonoBehaviour:
   MaxHP: 0
   CoinText: {fileID: 0}
   spawnCoin: {fileID: 3057560387295788842, guid: f6e91541464e10647b76fce9aa9b78fe, type: 3}
+  spawnArea: {x: 5, y: 5}
