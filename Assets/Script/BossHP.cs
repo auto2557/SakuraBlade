@@ -1,4 +1,4 @@
-using System.Buffers.Text;
+﻿using System.Buffers.Text;
 using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
@@ -24,17 +24,23 @@ public class  BossHP : MonoBehaviour
     public static double coinValue;
     public static double coinAmount;
 
+    public GameObject spawnCoin;
+    public Vector2 spawnArea;
+
+
     private void Start()
     {
         CoinSystem coinSystem = new CoinSystem();
         double randomCoin = Random.Range(50,100);
 
+
         coinSystem.coin = randomCoin;
 
         coinValue = coinSystem.coin;
+
         
 
-    GameObject healthSliderObj = GameObject.FindWithTag("HPbar");
+        GameObject healthSliderObj = GameObject.FindWithTag("HPbar");
         healthSlider = healthSliderObj.GetComponent<Slider>();
 
         GameObject Coinui = GameObject.FindWithTag("CoinUI");
@@ -43,7 +49,8 @@ public class  BossHP : MonoBehaviour
         GameObject textHeal = GameObject.FindWithTag("hpCOUNT");
         healthText = textHeal.GetComponent<Text>();
 
-        LoadGame();
+
+        //LoadGame();
 
         HP = currentHP * healthMultiplier;
         MaxHP = HP;
@@ -88,6 +95,7 @@ public class  BossHP : MonoBehaviour
 
     public void BossDestroy()
     {
+
         if (HP <= 0)
         {
         
@@ -97,6 +105,7 @@ public class  BossHP : MonoBehaviour
             
             healthMultiplier *= 1.25;
             Instantiate(nextBoss, spawn.position, spawn.rotation);
+           
 
             coinAmount += coinValue;
             CoinText.text = "Coin = " + ((int)coinAmount).ToString();
@@ -107,10 +116,29 @@ public class  BossHP : MonoBehaviour
             CoinSystem coinSystem = new CoinSystem();
             coinSystem.coin = coinAmount;
 
+            SpawnObjects();
 
             SaveGame();
 
         }
+       
+    }
+
+    public void SpawnObjects()
+    {
+        
+        int randomCoinspawn = Random.Range(10,15);
+        for (int i = 0; i < randomCoinspawn; i++)
+        {
+            Vector2 randomPosition = new Vector2(
+                Random.Range(-spawnArea.x / 2, spawnArea.x / 2),
+                Random.Range(-spawnArea.y / 2, spawnArea.y / 2)
+                );
+
+            GameObject spawnedCoin =  Instantiate(spawnCoin, randomPosition, Quaternion.identity);
+            Destroy(spawnedCoin, 5f);
+        }
+        
        
     }
 
