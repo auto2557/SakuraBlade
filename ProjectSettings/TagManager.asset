@@ -9,6 +9,7 @@ TagManager:
   - hpCOUNT
   - CoinUI
   - Coin
+  - BossCount
   layers:
   - Default
   - TransparentFX

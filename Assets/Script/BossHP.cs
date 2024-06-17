@@ -14,7 +14,7 @@ public class  BossHP : MonoBehaviour
     private double currentHP = 10;
     public static double healthMultiplier = 1.75;
 
-    public double MaxHP;
+    public static double MaxHP;
 
     private Slider healthSlider;
     private Text healthText;
@@ -28,6 +28,9 @@ public class  BossHP : MonoBehaviour
     public GameObject spawnCoin;
     public Vector2 spawnArea;
 
+    public Text CountUI;
+    public static int CountBoss = 1;
+
 
     private void Start()
     {
@@ -36,6 +39,8 @@ public class  BossHP : MonoBehaviour
 
 
         coin = randomCoin;
+
+        
 
         GameObject healthSliderObj = GameObject.FindWithTag("HPbar");
         healthSlider = healthSliderObj.GetComponent<Slider>();
@@ -46,8 +51,11 @@ public class  BossHP : MonoBehaviour
         GameObject textHeal = GameObject.FindWithTag("hpCOUNT");
         healthText = textHeal.GetComponent<Text>();
 
+        GameObject countBoss = GameObject.FindWithTag("BossCount");
+        CountUI = countBoss.GetComponent<Text>();
 
-        LoadGame();
+
+        //LoadGame();
 
         HP = currentHP * healthMultiplier;
         MaxHP = HP;
@@ -56,12 +64,30 @@ public class  BossHP : MonoBehaviour
 
         CoinText.text = "Coin = " + ((int)coinAmount).ToString();
         healthText.text = ((int)HP).ToString() + "/" + ((int)MaxHP).ToString();
+        CountUI.text = "Boss" + CountBoss.ToString() + "/8";
+
+        BigBoss();
+
+        if (CountBoss >= 8&&CountBoss<9)
+        {
+            MaxHP *= 3;
+            healthText.text = ((int)HP).ToString() + "/" + ((int)MaxHP).ToString();
+        }
+        else if (CountBoss >= 9)
+        {
+            MaxHP /= 3;
+        }
+        else
+        {
+            healthText.text = ((int)HP).ToString() + "/" + ((int)MaxHP).ToString();
+        }
     }
 
     private void Update()
     {
         AttackBoss();
         BossDestroy();
+       
     }
 
 
@@ -98,6 +124,7 @@ public class  BossHP : MonoBehaviour
         
             healthSlider.value = healthSlider.maxValue;
 
+            CountBoss++;
             Destroy(gameObject);
             SpawnObjects();
 
@@ -108,13 +135,28 @@ public class  BossHP : MonoBehaviour
             coinAmount += coin;
             CoinText.text = "Coin = " + ((int)coinAmount).ToString();
 
+            CountUI.text = "Boss" + CountBoss.ToString() + "/8";
 
             CoinText.text = "Coin = " + coinAmount.ToString();
-
+            
             SaveGame();
 
         }
        
+    }
+
+    private void BigBoss()
+    {
+     if(CountBoss>=8 && CountBoss<9)
+     {
+            HP *= 3;
+     }
+     else if (CountBoss>=9)
+        {
+            CountBoss -= 8;
+            HP /= 3;
+        }
+    
     }
 
     private void SpawnObjects()
