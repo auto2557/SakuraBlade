@@ -3,9 +3,9 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
 
-public class  BossHP : MainData
+public class  BossHP : MonoBehaviour
 {
-    public double damagePerClick = 1;
+    public static double damagePerClick = 1;
 
     public GameObject nextBoss;
     public Transform spawn;
@@ -21,6 +21,7 @@ public class  BossHP : MainData
 
     
     public Text CoinText;
+    public static double coin;
     public static double coinValue;
     public static double coinAmount;
 
@@ -46,7 +47,7 @@ public class  BossHP : MainData
         healthText = textHeal.GetComponent<Text>();
 
 
-        //LoadGame();
+        LoadGame();
 
         HP = currentHP * healthMultiplier;
         MaxHP = HP;
@@ -64,7 +65,7 @@ public class  BossHP : MainData
     }
 
 
-    public void AttackBoss()
+    private void AttackBoss()
     {
         if (Input.touchCount > 0)
         {
@@ -89,7 +90,7 @@ public class  BossHP : MainData
     }
 
 
-    public void BossDestroy()
+    private void BossDestroy()
     {
 
         if (HP <= 0)
@@ -110,16 +111,13 @@ public class  BossHP : MainData
 
             CoinText.text = "Coin = " + coinAmount.ToString();
 
-            
-            
-
             SaveGame();
 
         }
        
     }
 
-    public void SpawnObjects()
+    private void SpawnObjects()
     {
 
         int randomCoinspawn = Random.Range(20, 35);
@@ -136,19 +134,21 @@ public class  BossHP : MainData
         }
     }
 
-    public void SaveGame()
+    public virtual void SaveGame()
     {
         GameData data = new GameData();
        
         data.bossHP = HP;
         data.healthMultiplier = healthMultiplier;
         data.coinData = coinAmount;
+        data.damagePerClick = damagePerClick;
+       
 
         string json = JsonUtility.ToJson(data);
         File.WriteAllText(Application.persistentDataPath + "/bossdata.json", json);
     }
 
-    public void LoadGame()
+    public virtual void LoadGame()
     {
       
 
@@ -160,6 +160,8 @@ public class  BossHP : MainData
             HP = data.bossHP;
             healthMultiplier = data.healthMultiplier;
             coinAmount = data.coinData;
+            damagePerClick = data.damagePerClick;
+           
         }
     }
 

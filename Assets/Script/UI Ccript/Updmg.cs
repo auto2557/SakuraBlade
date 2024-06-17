@@ -2,23 +2,25 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UpDmg : BossHP
+public class Updmg : Upgrade
 {
-    public double Updmgcost = 100;
-    public Button UpdmgButton;
 
-    private void Start()
+    public override void Start()
     {
-        UpdmgButton.onClick.AddListener(Upgrade);
+        UpdmgButton.onClick.AddListener(upgrade);
         GameObject Coinui = GameObject.FindWithTag("CoinUI");
         CoinText = Coinui.GetComponent<Text>();
     }
 
-    public void Upgrade()
+    public override void upgrade()
     {
-        if (coinAmount >= 100) 
+        if (coinAmount >= Upcost)
         {
-            coinAmount -= Updmgcost;
+            coinAmount -= Upcost;
+
+            Upcost *= 2;
+            damagePerClick *= 2;
+
             CoinText.text = "Coin = " + ((int)coinAmount).ToString();
         }
     }
