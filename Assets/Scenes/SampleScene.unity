@@ -864,10 +864,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextBoss: {fileID: 0}
   spawn: {fileID: 0}
-  MaxHP: 0
   CoinText: {fileID: 0}
   spawnCoin: {fileID: 0}
   spawnArea: {x: 0, y: 0}
+  CountUI: {fileID: 0}
   damage: 1
   damagePOP: {fileID: 1101326444}
   displayDuration: 1.5
