@@ -58,23 +58,18 @@ public class  BossHP : MonoBehaviour
         //LoadGame();
         BigBoss();
 
+
         HP = currentHP * healthMultiplier;
+        
         MaxHP = HP;
-        healthSlider.maxValue = (int)(HP);
-        healthSlider.value = (int)(HP);
+        BigBoss();
 
-        CoinText.text = "Coin = " + ((int)coinAmount).ToString();
-        healthText.text = ((int)HP).ToString() + "/" + ((int)MaxHP).ToString();
-        CountUI.text = "Boss" + CountBoss.ToString() + "/8";
-
-      
-
-        if (CountBoss >= 8&&CountBoss<9)
+        if (CountBoss >= 8 && CountBoss < 9)
         {
             MaxHP *= 3;
             healthText.text = ((int)HP).ToString() + "/" + ((int)MaxHP).ToString();
         }
-        else if (CountBoss >= 8 && HP<=0)
+        else if (CountBoss >= 8 && HP <= 0)
         {
             MaxHP /= 3;
         }
@@ -82,6 +77,19 @@ public class  BossHP : MonoBehaviour
         {
             healthText.text = ((int)HP).ToString() + "/" + ((int)MaxHP).ToString();
         }
+
+
+        healthSlider.maxValue = (int)(HP);
+        healthSlider.value = (int)(HP);
+        
+        CoinText.text = "Coin = " + ((int)coinAmount).ToString();
+        healthText.text = ((int)HP).ToString() + "/" + ((int)MaxHP).ToString();
+        
+        CountUI.text = "Boss" + CountBoss.ToString() + "/8";
+
+       
+
+       
     }
 
     private void Update()
@@ -152,9 +160,9 @@ public class  BossHP : MonoBehaviour
      {
             HP *= 3;
      }
-     else if (CountBoss>=8 && HP <= 0)
+     else if (CountBoss>8 && HP <= 0)
         {
-            CountBoss = 1;
+            CountBoss -= 8;
             HP /= 3;
             coinAmount *= 10;
         }
