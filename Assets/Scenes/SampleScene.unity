@@ -690,17 +690,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1101326444 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6793449118310233987, guid: 329a26a5b76eeda48a9f8c8ffc4ce34d, type: 3}
-  m_PrefabInstance: {fileID: 2936222717727205863}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1324102828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -709,10 +698,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -873779907659609131, guid: 2009465e956821d4b9f529ed8cdde923, type: 3}
-      propertyPath: healthSlider
-      value: 
-      objectReference: {fileID: 1465955741}
     - target: {fileID: 4842213453147683233, guid: 2009465e956821d4b9f529ed8cdde923, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.08
@@ -757,7 +742,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -772,7 +758,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1420095932}
   - component: {fileID: 1420095931}
-  - component: {fileID: 1420095933}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -850,38 +835,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1420095933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1420095930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0059b14463911e548bb7f41bc8af5a52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextBoss: {fileID: 0}
-  spawn: {fileID: 0}
-  CoinText: {fileID: 0}
-  spawnCoin: {fileID: 0}
-  spawnArea: {x: 0, y: 0}
-  CountUI: {fileID: 0}
-  damage: 1
-  damagePOP: {fileID: 1101326444}
-  displayDuration: 1.5
---- !u!114 &1465955741 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 420084438682511851, guid: 329a26a5b76eeda48a9f8c8ffc4ce34d, type: 3}
-  m_PrefabInstance: {fileID: 2936222717727205863}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2936222717727205863
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -982,7 +935,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5175533642744824308, guid: 329a26a5b76eeda48a9f8c8ffc4ce34d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
