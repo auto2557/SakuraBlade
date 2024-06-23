@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8667760872112863617}
   - component: {fileID: 8824699751964796155}
-  - component: {fileID: 4735204001810656310}
+  - component: {fileID: 1669241822994922887}
   m_Layer: 0
   m_Name: Boss2
   m_TagString: Boss
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4735204001810656310
+--- !u!114 &1669241822994922887
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,13 +97,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6690198522684267730}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cc922b564fe4a047aa0a8d757679c6b, type: 3}
+  m_Script: {fileID: 11500000, guid: ccb32cc6470f504449b5243732e6a91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerClick: 1
+  bossHP: 0
+  bossMaxHP: 10
   nextBoss: {fileID: 5005633322105081572, guid: 2009465e956821d4b9f529ed8cdde923, type: 3}
   spawn: {fileID: 8667760872112863617}
-  MaxHP: 0
-  CoinText: {fileID: 0}
-  spawnCoin: {fileID: 3057560387295788842, guid: f6e91541464e10647b76fce9aa9b78fe, type: 3}
-  spawnArea: {x: 5, y: 5}
+  damagePerClick: 1
