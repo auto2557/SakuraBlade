@@ -3,10 +3,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
 
-public class UPDAMAGE : Boss
+public class UPDAMAGE : Attack
 {
-    public static double Upcost = 100;
-    public Button UpdmgButton;
+    
+    [SerializeField] public static double Upcost = 100;
+    [SerializeField] public Button UpdmgButton;
 
 
     private void Start()
@@ -14,9 +15,11 @@ public class UPDAMAGE : Boss
         UpdmgButton.onClick.AddListener(upgrade);
         GameObject Coinui = GameObject.FindWithTag("CoinUI");
         CoinText = Coinui.GetComponent<Text>();
+
     }
     private void upgrade()
     {
+
         if (coinAmount >= Upcost)
         {
             coinAmount -= Upcost;

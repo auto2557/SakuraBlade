@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
-    public Slider healthSlider;
+    protected Slider healthSlider;
     public Text healthText;
     public Text CoinText;
 }
