@@ -27,18 +27,21 @@ public class Boss : SaveLoad
 
 
 
-        CoinText.text = "Coin = " + ((int)coinAmount).ToString();
+        CoinText.text = "Coin = " + FormatNumber((int)coinAmount).ToString();
 
         //LoadGame();
         BigBoss();
+
         //Boss HP//
         bossHP = bossMaxHP * healthMultiplier;
         UiMaxHP = bossMaxHP * healthMultiplier;
 
+       
+
         if (CountBoss >= 8 && CountBoss < 9)
         {
             bossMaxHP *= 3;
-            healthText.text = ((int)bossHP).ToString() + "/" + ((int)bossMaxHP).ToString();
+            healthText.text = FormatNumber((int)bossHP).ToString() + "/" + FormatNumber((int)UiMaxHP).ToString();
         }
         else if (CountBoss >= 8 && bossHP <= 0)
         {
@@ -46,19 +49,19 @@ public class Boss : SaveLoad
         }
         else
         {
-            healthText.text = ((int)bossHP).ToString() + "/" + ((int)bossMaxHP).ToString();
+            healthText.text = FormatNumber((int)bossHP).ToString() + "/" + FormatNumber((int)UiMaxHP).ToString();
         }
-
+        BigBoss();
 
 
         healthSlider.maxValue = (int)(bossHP);
         healthSlider.value = (int)(bossHP);
+        
 
-      
 
         //UI//
-        healthText.text = ((int)bossHP).ToString() + "/" + ((int)UiMaxHP).ToString();
-        CoinText.text = "Coin = " + ((int)coinAmount).ToString();
+        healthText.text = FormatNumber((int)bossHP).ToString() + "/" + FormatNumber((int)UiMaxHP).ToString();
+        CoinText.text = "Coin = " + FormatNumber((int)coinAmount).ToString();
         CountUI.text = "Boss" + CountBoss.ToString() + "/8";
 
 
@@ -89,7 +92,7 @@ public class Boss : SaveLoad
             healthMultiplier *= 1.25;
 
             coinAmount += coin;
-            CoinText.text = "Coin = " + ((int)coinAmount).ToString();
+            CoinText.text = "Coin = " + FormatNumber((int)coinAmount).ToString();
 
             Instantiate(nextBoss, spawn.position, spawn.rotation);
 
@@ -102,12 +105,12 @@ public class Boss : SaveLoad
     {
         if (CountBoss >= 8 && CountBoss < 9)
         {
-            bossHP *= 3;
+            bossMaxHP *= 3;
         }
         else if (CountBoss > 8 && bossHP <= 0)
         {
             CountBoss -= 8;
-            bossHP /= 3;
+            bossMaxHP /= 3;
             coinAmount *= 10;
         }
 

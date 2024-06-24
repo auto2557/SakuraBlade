@@ -17,7 +17,8 @@ public class Attack : HP
 
                     bossHP -= damagePerClick;
                     healthSlider.value = (int)bossHP;
-                    healthText.text = ((int)bossHP).ToString() + "/" + ((int)UiMaxHP).ToString();
+        CoinText.text = "Coin = " + FormatNumber((int)coinAmount).ToString();
+                    healthText.text = FormatNumber((int)bossHP).ToString() + "/" + FormatNumber((int)UiMaxHP).ToString();
                     Debug.Log("HP = " + (float)bossHP);
 
 
