@@ -1,17 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Boss : Attack
+public class Boss : SaveLoad
 {
 
     private void Start()
     {
-        //Boss HP//
-        bossHP = bossMaxHP * healthMultiplier;
-        UiMaxHP = bossMaxHP * healthMultiplier;
-
+       
         double randomCoin = Random.Range(50, 100);
         coin = randomCoin;
+
 
         //For find UI//
         GameObject healthSliderObj = GameObject.FindWithTag("HPbar");
@@ -23,17 +21,58 @@ public class Boss : Attack
         GameObject Coinui = GameObject.FindWithTag("CoinUI");
         CoinText = Coinui.GetComponent<Text>();
 
+       
+        CoinText.text = "Coin = " + ((int)coinAmount).ToString();
+
+        //LoadGame();
+
+        //Boss HP//
+        bossHP = bossMaxHP * healthMultiplier;
+        UiMaxHP = bossMaxHP * healthMultiplier;
+
         healthSlider.maxValue = (int)(bossHP);
         healthSlider.value = (int)(bossHP);
 
+      
+
         //UI//
         healthText.text = ((int)bossHP).ToString() + "/" + ((int)UiMaxHP).ToString();
+        CoinText.text = "Coin = " + ((int)coinAmount).ToString();
+
+
+
     }
 
     private void Update()
     {
         AttackBoss();
         BossDestroy();
+    }
+
+    public override void AttackBoss()
+    {
+        base.AttackBoss();
+        SaveGame();
+    }
+
+    public override void BossDestroy()
+    {
+        if (bossHP <= 0)
+        {
+            healthSlider.value = healthSlider.maxValue;
+
+            Destroy(gameObject);
+
+            healthMultiplier *= 1.25;
+
+            coinAmount += coin;
+            CoinText.text = "Coin = " + ((int)coinAmount).ToString();
+
+            Instantiate(nextBoss, spawn.position, spawn.rotation);
+
+  
+            SaveGame();
+        }
     }
 
 }

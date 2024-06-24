@@ -100,8 +100,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb32cc6470f504449b5243732e6a91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthSlider: {fileID: 0}
+  healthText: {fileID: 0}
+  CoinText: {fileID: 0}
   bossHP: 0
+  UiMaxHP: 0
   bossMaxHP: 10
   nextBoss: {fileID: 5005633322105081572, guid: 2009465e956821d4b9f529ed8cdde923, type: 3}
   spawn: {fileID: 8667760872112863617}
-  damagePerClick: 1
+  UpdmgButton: {fileID: 0}

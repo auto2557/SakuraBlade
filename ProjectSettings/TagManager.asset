@@ -10,6 +10,7 @@ TagManager:
   - CoinUI
   - Coin
   - BossCount
+  - UpGradeDMG
   layers:
   - Default
   - TransparentFX
