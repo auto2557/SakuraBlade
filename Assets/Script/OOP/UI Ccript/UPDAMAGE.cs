@@ -1,23 +1,28 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
-public class Updmg : Upgrade
+public class UPDAMAGE : Attack
 {
+    
+    [SerializeField] public static double Upcost = 100;
+    [SerializeField] public Button UpdmgButton;
 
-    public override void Start()
+
+    private void Start()
     {
         UpdmgButton.onClick.AddListener(upgrade);
         GameObject Coinui = GameObject.FindWithTag("CoinUI");
         CoinText = Coinui.GetComponent<Text>();
-    }
 
-    public override void upgrade()
+    }
+    private void upgrade()
     {
+
         if (coinAmount >= Upcost)
         {
             coinAmount -= Upcost;
-
             Upcost *= 2;
             damagePerClick *= 2;
 
