@@ -7,4 +7,5 @@ public class UI : MonoBehaviour
     protected Slider healthSlider;
     public Text healthText;
     public Text CoinText;
+    public Text CountUI;
 }
