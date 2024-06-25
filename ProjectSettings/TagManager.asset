@@ -11,6 +11,9 @@ TagManager:
   - Coin
   - BossCount
   - UpGradeDMG
+  - tail
+  - horn
+  - claws
   layers:
   - Default
   - TransparentFX

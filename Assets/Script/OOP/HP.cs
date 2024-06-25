@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class HP : Coin
+public class HP : spawnrate
 {
     public double bossHP;
     public double UiMaxHP;
@@ -24,6 +24,8 @@ public class HP : Coin
 
             coinAmount += coin;
             CoinText.text = "Coin = " + ((int)coinAmount).ToString();
+
+            SpawnPartofKaiju();
 
             Instantiate(nextBoss, spawn.position, spawn.rotation);
 

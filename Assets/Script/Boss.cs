@@ -65,7 +65,14 @@ public class Boss : SaveLoad
         CountUI.text = "Boss" + CountBoss.ToString() + "/8";
 
 
-
+        int rate = Random.Range(1, 100);
+        ratedrop = rate;
+        int tailrate = Random.Range(1, 2);
+        tailspawn = tailrate;
+        int hornrate = Random.Range(1, 3);
+        hornspawn = hornrate;
+        int clawrate = Random.Range(3, 20);
+        clawspawn = clawrate;
     }
 
     private void Update()
