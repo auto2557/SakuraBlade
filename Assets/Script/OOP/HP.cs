@@ -25,7 +25,7 @@ public class HP : spawnrate
             coinAmount += coin;
             CoinText.text = "Coin = " + ((int)coinAmount).ToString();
 
-            SpawnPartofKaiju();
+           
 
             Instantiate(nextBoss, spawn.position, spawn.rotation);
 

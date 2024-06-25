@@ -5,21 +5,20 @@ public class spawnrate : Coin
     public GameObject tail;
     public GameObject horn;
     public GameObject claw;
-    public int ratedrop;
+    protected int ratedrop;
     protected int tailspawn;
-    private int partoftail;
+    protected int partoftail;
     protected int hornspawn;
-    private int partofhorn;
+    protected int partofhorn;
     protected int clawspawn;
-    private int partofclaw;
+    protected int partofclaw;
 
     public Vector2 spawnArea;
 
-  
 
     public void SpawnPartofKaiju()
     {
-        if (ratedrop >= 1)
+        if (ratedrop >= 72)
         {
             int randomspawn = tailspawn;
             for (int i = 0; i < randomspawn; i++)
@@ -34,7 +33,7 @@ public class spawnrate : Coin
             }
             partoftail += tailspawn;
         }
-        else if (ratedrop >= 75)
+        else if (ratedrop >= 25)
         {
             int randomspawn = clawspawn;
             for (int i = 0; i < randomspawn; i++)
@@ -49,7 +48,7 @@ public class spawnrate : Coin
             }
             partofclaw += clawspawn;
         }
-        else if (ratedrop >= 92)
+        else if (ratedrop >= 90)
         {
             int randomspawn = hornspawn;
             for (int i = 0; i < randomspawn; i++)
