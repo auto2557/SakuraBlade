@@ -12,6 +12,17 @@ public class Boss : SaveLoad
         coin = randomCoin;
 
 
+
+        int rate = Random.Range(1, 100);
+        ratedrop = rate;
+        int tailrate = Random.Range(1, 2);
+        tailspawn = tailrate;
+        int hornrate = Random.Range(1, 3);
+        hornspawn = hornrate;
+        int clawrate = Random.Range(3, 20);
+        clawspawn = clawrate;
+
+
         //For find UI//
         GameObject healthSliderObj = GameObject.FindWithTag("HPbar");
         healthSlider = healthSliderObj.GetComponent<Slider>();
@@ -65,7 +76,6 @@ public class Boss : SaveLoad
         CountUI.text = "Boss" + CountBoss.ToString() + "/8";
 
 
-
     }
 
     private void Update()
@@ -93,6 +103,8 @@ public class Boss : SaveLoad
 
             coinAmount += coin;
             CoinText.text = "Coin = " + FormatNumber((int)coinAmount).ToString();
+
+            SpawnPartofKaiju();
 
             Instantiate(nextBoss, spawn.position, spawn.rotation);
 
