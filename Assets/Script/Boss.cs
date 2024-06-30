@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Boss : SaveLoad
 {
@@ -35,6 +36,9 @@ public class Boss : SaveLoad
 
         GameObject countBoss = GameObject.FindWithTag("BossCount");
         CountUI = countBoss.GetComponent<Text>();
+
+        GameObject PopupDamage = GameObject.FindWithTag("PopUPDMG");
+        pfUIDmg = PopupDamage.GetComponent<TextMeshPro>();
 
 
 
@@ -74,7 +78,6 @@ public class Boss : SaveLoad
         healthText.text = FormatNumber((int)bossHP).ToString() + "/" + FormatNumber((int)UiMaxHP).ToString();
         CoinText.text = "Coin = " + FormatNumber((int)coinAmount).ToString();
         CountUI.text = "Boss" + CountBoss.ToString() + "/8";
-
 
     }
 

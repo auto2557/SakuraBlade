@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.IO;
 
-public class SaveLoad : Attack
+public class SaveLoad : DamagePopup
 {
     public void SaveGame()
     {
