@@ -9,9 +9,10 @@ public class DamagePopup : Attack
     public Transform PosPopUp;
     public TextMeshPro pfUIDmg;
 
+
     public void TextLabelDmg (int Damage)
     {
-       float duration = .5f;
+       float duration = 0.5f;
        StartCoroutine(TextAnimate(Damage,duration));
     }
 
@@ -39,12 +40,12 @@ public class DamagePopup : Attack
     IEnumerator TextAnimate(int Damage, float duration){
         TextMeshPro Item = Instantiate(pfUIDmg, Vector3.zero, Quaternion.identity);
         Item.transform.position = PosPopUp.position;
-        Item.GetComponent<TextMeshPro>().text = "-"+Damage.ToString();
+        Item.GetComponent<TextMeshPro>().text = "-"+FormatNumber((int)Damage).ToString();
 
         float timeElapsed = 0;
         while (timeElapsed < duration){
             float t = timeElapsed / duration;
-            Item.transform.position = Vector3.Lerp(Item.transform.position, new Vector3(Item.transform.position.x + .05f,Item.transform.position.y + .05f,Item.transform.position.z), t);
+            Item.transform.position = Vector3.Lerp(Item.transform.position, new Vector3(Item.transform.position.x + 0f,Item.transform.position.y + 0.10f,Item.transform.position.z), t);
             timeElapsed += Time.deltaTime;
             yield return null;
         }

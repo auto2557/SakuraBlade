@@ -112,5 +112,5 @@ MonoBehaviour:
   bossMaxHP: 10
   nextBoss: {fileID: 5005633322105081572, guid: 2009465e956821d4b9f529ed8cdde923, type: 3}
   spawn: {fileID: 8667760872112863617}
-  PosPopUp: {fileID: 8667760872112863617}
+  PosPopUp: {fileID: 0}
   pfUIDmg: {fileID: 4511429868253601061, guid: 332bfb202e94e2a4396f25fa08a753b8, type: 3}

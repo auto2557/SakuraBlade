@@ -37,9 +37,8 @@ public class Boss : SaveLoad
         GameObject countBoss = GameObject.FindWithTag("BossCount");
         CountUI = countBoss.GetComponent<Text>();
 
-        GameObject PopupDamage = GameObject.FindWithTag("PopUPDMG");
-        pfUIDmg = PopupDamage.GetComponent<TextMeshPro>();
-
+        GameObject Popdmg = GameObject.FindWithTag("PopUPDMG");
+        PosPopUp = Popdmg.GetComponent<Transform>();
 
 
         CoinText.text = "Coin = " + FormatNumber((int)coinAmount).ToString();

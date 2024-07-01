@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 910280395860752281}
   - component: {fileID: 2460398501452888421}
   - component: {fileID: 4511429868253601061}
-  - component: {fileID: 6069652443103710533}
+  - component: {fileID: -2017865406422295498}
   m_Layer: 0
   m_Name: pfDamagePopup
   m_TagString: PopUPDMG
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 2460398501452888421}
   m_maskType: 0
---- !u!114 &6069652443103710533
+--- !u!114 &-2017865406422295498
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,20 +186,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1745252398818437207}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a288f2dd3fdc5164980e5e58a4a3dba0, type: 3}
+  m_Script: {fileID: 11500000, guid: ed101a19eac772e4c9ad78fd50e92a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthText: {fileID: 0}
-  CoinText: {fileID: 0}
-  CountUI: {fileID: 0}
-  tail: {fileID: 0}
-  horn: {fileID: 0}
-  claw: {fileID: 0}
-  spawnArea: {x: 0, y: 0}
-  bossHP: 0
-  UiMaxHP: 0
-  bossMaxHP: 10
-  nextBoss: {fileID: 0}
-  spawn: {fileID: 0}
-  PosPopUp: {fileID: 0}
-  pfUIDmg: {fileID: 0}
