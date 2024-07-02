@@ -2,7 +2,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI : MonoBehaviour
+public class UI : GameSystem
 {
     protected Slider healthSlider;
     public Text healthText;
