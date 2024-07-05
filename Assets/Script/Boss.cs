@@ -12,7 +12,8 @@ public class Boss : SaveLoad
         double randomCoin = Random.Range(50, 100);
         coin = randomCoin;
 
-
+        mindamage = damagePerClick;
+        maxdamage = damagePerClick + 3;
 
         int rate = Random.Range(1, 100);
         ratedrop = rate;
@@ -88,8 +89,28 @@ public class Boss : SaveLoad
 
     public override void AttackBoss()
     {
-        base.AttackBoss();
-        SaveGame();
+
+        if (Input.touchCount > 0)
+        {
+            foreach (Touch touch in Input.touches)
+            {
+                if (touch.phase == TouchPhase.Began)
+                {
+                   
+                        int randomDamage = Random.Range((int)mindamage, (int)maxdamage);
+                        attack = randomDamage;
+               
+                    bossHP -= attack;
+                    healthSlider.value = (int)bossHP;
+                    CoinText.text = "Coin = " + FormatNumber((int)coinAmount).ToString();
+                    healthText.text = FormatNumber((int)bossHP).ToString() + "/" + FormatNumber((int)UiMaxHP).ToString();
+                    Debug.Log("HP = " + (float)bossHP);
+
+                    TextLabelDmg((int)attack);
+
+                }
+            }
+        }
     }
 
     public override void BossDestroy()

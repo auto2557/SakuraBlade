@@ -3,7 +3,9 @@ using UnityEngine;
 public class Attack : HP
 {
     public static double damagePerClick = 1;
-
+    public double attack;
+    public double maxdamage;
+    public double mindamage;
     public virtual void AttackBoss()
     {
         if (Input.touchCount > 0)
@@ -12,7 +14,7 @@ public class Attack : HP
             {
                 if (touch.phase == TouchPhase.Began)
                 {
-
+                    
                     bossHP -= damagePerClick;
                     healthSlider.value = (int)bossHP;
                     CoinText.text = "Coin = " + FormatNumber((int)coinAmount).ToString();
