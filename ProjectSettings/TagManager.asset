@@ -4,17 +4,7 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - HPbar
-  - Boss
-  - hpCOUNT
-  - CoinUI
-  - Coin
-  - BossCount
-  - UpGradeDMG
-  - tail
-  - horn
-  - claws
-  - PopUPDMG
+  - player
   layers:
   - Default
   - TransparentFX
