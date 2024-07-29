@@ -296,7 +296,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sb_mc_idle.aseprite new (1)-Sheet-Sheet_0: -6185699456262323693
+      sb_mc_idle.aseprite new (1)-Sheet-Sheet_1: 8328341482196428285
+      sb_mc_idle.aseprite new (1)-Sheet-Sheet_2: -5653364187911940246
+      sb_mc_idle.aseprite new (1)-Sheet-Sheet_3: 2675291318123083405
+      sb_mc_idle.aseprite new (1)-Sheet-Sheet_4: -8797363242008585728
+      sb_mc_idle.aseprite new (1)-Sheet-Sheet_5: 4409332266170325286
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
