@@ -6,13 +6,13 @@ public class Movement : MonoBehaviour
     public float speed;
     private Rigidbody2D rb;
     public Animator animator;
-    private Transform playerTransform;
+    private SpriteRenderer spriteRenderer;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        playerTransform = transform;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -31,11 +31,11 @@ public class Movement : MonoBehaviour
             // Flip the character based on movement direction
             if (direction.x > 0)
             {
-                playerTransform.localScale = new Vector3(1, 1, 1); // Facing right
+                spriteRenderer.flipX = false; // Facing right
             }
             else if (direction.x < 0)
             {
-                playerTransform.localScale = new Vector3(-1, 1, 1); // Facing left
+                spriteRenderer.flipX = true; // Facing left
             }
         }
         else
