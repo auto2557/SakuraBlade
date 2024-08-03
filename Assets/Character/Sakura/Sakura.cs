@@ -10,10 +10,12 @@ public class Sakura : PlayerScript
         spriteRenderer = GetComponent<SpriteRenderer>();
          GameObject joy = GameObject.FindGameObjectWithTag("GameController");
         movement = joy.GetComponent<Joystick>();
+        autoAttack();
     }
     private void FixedUpdate()
     {
         MovementPlayer();
+        
     }
 
 }

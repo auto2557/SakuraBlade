@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerHP : Movement
+public class PlayerHP : Attack
 {
 
     public int hp = 100;
