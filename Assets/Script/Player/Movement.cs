@@ -4,23 +4,12 @@ public class Movement : MonoBehaviour
 {
     public Joystick movement;
     public float speed;
-    private Rigidbody2D rb;
+    protected Rigidbody2D rb;
     public Animator animator;
-    private SpriteRenderer spriteRenderer;
+    protected SpriteRenderer spriteRenderer;
 
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
 
-    private void FixedUpdate()
-    {
-        MovementPlayer();
-    }
-
-    public void MovementPlayer()
+    virtual public void MovementPlayer()
     {
         Vector2 direction = movement.Direction;
         if (direction.y != 0 || direction.x != 0)
