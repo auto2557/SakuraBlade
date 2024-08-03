@@ -8,6 +8,12 @@ public class CameraFollow : MonoBehaviour
 
     [SerializeField] private Transform target;
 
+    private void Start()
+    {
+        GameObject cam = GameObject.FindGameObjectWithTag("Player");
+        target = cam.GetComponent<Transform>();
+    }
+
     private void Update()
     {
         Vector3 targetPosition = target.position + offset;

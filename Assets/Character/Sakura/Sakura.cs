@@ -8,7 +8,8 @@ public class Sakura : PlayerScript
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-         GameObject movement = GameObject.FindGameObjectWithTag("GameController");
+         GameObject joy = GameObject.FindGameObjectWithTag("GameController");
+        movement = joy.GetComponent<Joystick>();
     }
     private void FixedUpdate()
     {
