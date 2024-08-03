@@ -4,23 +4,22 @@ public class Movement : MonoBehaviour
 {
     public Joystick movement;
     public float speed;
-    private Rigidbody2D rb;
+    protected Rigidbody2D rb;
     public Animator animator;
-    private Transform playerTransform;
 
-    private void Start()
+    public GameObject hitblockR;
+    public GameObject hitblockL;
+
+    protected SpriteRenderer spriteRenderer;
+    private bool isFacingRight = true; 
+
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        playerTransform = transform;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void FixedUpdate()
-    {
-        MovementPlayer();
-    }
-
-    public void MovementPlayer()
+    virtual public void MovementPlayer()
     {
         Vector2 direction = movement.Direction;
         if (direction.y != 0 || direction.x != 0)
@@ -28,14 +27,19 @@ public class Movement : MonoBehaviour
             rb.velocity = new Vector2(direction.x * speed, direction.y * speed);
             Runanimate(true);
 
-            // Flip the character based on movement direction
-            if (direction.x > 0)
+            if (direction.x > 0 && !isFacingRight)
             {
-                playerTransform.localScale = new Vector3(1, 1, 1); // Facing right
+                spriteRenderer.flipX = false; 
+                hitblockR.SetActive(true);   
+                hitblockL.SetActive(false);  
+                isFacingRight = true;
             }
-            else if (direction.x < 0)
+            else if (direction.x < 0 && isFacingRight)
             {
-                playerTransform.localScale = new Vector3(-1, 1, 1); // Facing left
+                spriteRenderer.flipX = true; 
+                hitblockR.SetActive(false);  
+                hitblockL.SetActive(true);   
+                isFacingRight = false;
             }
         }
         else

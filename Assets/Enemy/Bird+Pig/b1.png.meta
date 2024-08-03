@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: e3687ffb7562eb34dac5b6db21e3c6c6
+guid: bb4f0abfc9795054dace0bbe3514c230
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8422544696167376004
-    second: sb_mc_run_0
-  - first:
-      213: -1947662504715301338
-    second: sb_mc_run_1
-  - first:
-      213: 632104186302270226
-    second: sb_mc_run_2
-  - first:
-      213: -3378423840924395197
-    second: sb_mc_run_3
+      213: 5402799795003896996
+    second: dotpict_20240720_180824 (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -148,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sb_mc_run_0
+      name: dotpict_20240720_180824 (1)_0
       rect:
         serializedVersion: 2
-        x: 36
-        y: 48
-        width: 402
-        height: 317
+        x: 7
+        y: 87
+        width: 498
+        height: 378
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,74 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 48428efc6c3e2e470800000000000000
-      internalID: 8422544696167376004
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sb_mc_run_1
-      rect:
-        serializedVersion: 2
-        x: 525
-        y: 40
-        width: 425
-        height: 311
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 62ec818654388f4e0800000000000000
-      internalID: -1947662504715301338
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sb_mc_run_2
-      rect:
-        serializedVersion: 2
-        x: 1056
-        y: 48
-        width: 406
-        height: 316
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 21b859d886fa5c800800000000000000
-      internalID: 632104186302270226
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sb_mc_run_3
-      rect:
-        serializedVersion: 2
-        x: 1567
-        y: 40
-        width: 407
-        height: 311
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3499df49a6d6d11d0800000000000000
-      internalID: -3378423840924395197
+      spriteID: 4a4b2cdc9c99afa40800000000000000
+      internalID: 5402799795003896996
       vertices: []
       indices: 
       edges: []
@@ -247,10 +172,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sb_mc_run_0: 8422544696167376004
-      sb_mc_run_1: -1947662504715301338
-      sb_mc_run_2: 632104186302270226
-      sb_mc_run_3: -3378423840924395197
+      dotpict_20240720_180824 (1)_0: 5402799795003896996
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
