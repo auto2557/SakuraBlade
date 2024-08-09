@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 09245aaa129cb4640a04cdf5334fcd92
+guid: d8325d9c645ffdf4aafa5d1fd4fe7c32
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2160970724262147220
-    second: sb_mc_atk_sheet_0
-  - first:
-      213: -8193961945558253987
-    second: sb_mc_atk_sheet_1
-  - first:
-      213: 6942347508420658793
-    second: sb_mc_atk_sheet_2
-  - first:
-      213: -7965560706616325891
-    second: sb_mc_atk_sheet_3
+      213: 3737897332693287829
+    second: Bar_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -148,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sb_mc_atk_sheet_0
+      name: Bar_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 21
-        width: 432
-        height: 341
+        x: 0
+        y: 0
+        width: 52
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,74 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6b065a5390b202e0800000000000000
-      internalID: -2160970724262147220
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sb_mc_atk_sheet_1
-      rect:
-        serializedVersion: 2
-        x: 633
-        y: 17
-        width: 587
-        height: 344
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d5e7ee32603394e80800000000000000
-      internalID: -8193961945558253987
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sb_mc_atk_sheet_2
-      rect:
-        serializedVersion: 2
-        x: 1276
-        y: 21
-        width: 414
-        height: 470
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9664bbad64c285060800000000000000
-      internalID: 6942347508420658793
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sb_mc_atk_sheet_3
-      rect:
-        serializedVersion: 2
-        x: 1885
-        y: 17
-        width: 427
-        height: 472
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: df8035d9db4a47190800000000000000
-      internalID: -7965560706616325891
+      spriteID: 5934012e1ddafd330800000000000000
+      internalID: 3737897332693287829
       vertices: []
       indices: 
       edges: []
@@ -246,11 +171,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      sb_mc_atk_sheet_0: -2160970724262147220
-      sb_mc_atk_sheet_1: -8193961945558253987
-      sb_mc_atk_sheet_2: 6942347508420658793
-      sb_mc_atk_sheet_3: -7965560706616325891
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
